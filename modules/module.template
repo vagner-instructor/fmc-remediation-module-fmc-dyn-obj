@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module name="TriggerFMCDynBlock">
+    <global_config>
+        <display_name>Remediation Action Using FMC Dynamic Object</display_name>
+        <description>This remediation module will send source IP address to FMC Dynamic Object for N Seconds</description>
+        <binary>fmc_block_src_ip.py</binary>
+        <version>1.0</version>
+    </global_config>
+
+    <config_template>
+                <ipaddress>
+            <name>fmc_ip</name>
+            <display_name> Enter the FMC ip address</display_name>
+                </ipaddress>
+                <string>
+            <name>fmc_user</name>
+            <display_name> Enter the FMC API username</display_name>
+                </string>
+                <string>
+            <name>fmc_password</name>
+            <display_name> Enter the FMC API password</display_name>
+                </string>
+                <string>
+            <name>fmc_dyn_object_name</name>
+            <display_name> Enter the FMC Dynamic Object Name</display_name>
+                </string>
+                <string>
+            <name>quarantine_time</name>
+            <display_name>Time in Seconds needed for quarantine</display_name>
+                </string>
+                <string>
+            <name>firewall_obs</name>
+            <display_name> Enter any other observation or firewall description</display_name>
+                </string>
+    </config_template>
+
+    <remediation_type name="block_source">
+        <display_name>Block Source IP Address</display_name>
+        <policy_event_data>
+            <pe_item required="true">src_ip_addr</pe_item>
+        </policy_event_data>
+    </remediation_type>
+
+    <!-- remediation_type name="block_destination">
+        <display_name>Block Destination IP Address</display_name>
+        <policy_event_data>
+            <pe_item required="true">dest_ip_addr</pe_item>
+        </policy_event_data>
+    </remediation_type -->
+
+    <exit_status value="129">Failed to trigger FMC Block Dynamic Object</exit_status>
+</module>
