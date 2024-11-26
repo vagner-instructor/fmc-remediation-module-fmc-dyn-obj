@@ -134,10 +134,10 @@ def get_auth_token_and_domain_uuid(server, user, password):
         # Send POST request to get the authentication token
         r = requests.post(auth_url, headers=headers, auth=requests.auth.HTTPBasicAuth(user, password), verify=False)
 
-        # Print raw response for debugging
-        print(f"Response Status Code: {r.status_code}")
-        print(f"Response Headers: {r.headers}")
-        print(f"Response Text: {r.text}")
+        # Print raw response for debugging and troubleshooting
+#        print(f"Response Status Code: {r.status_code}")
+#        print(f"Response Headers: {r.headers}")
+#        print(f"Response Text: {r.text}")
 
         # Extract the authentication token from headers
         auth_token = r.headers.get('X-auth-access-token', default=None)
@@ -289,11 +289,11 @@ if __name__ == "__main__":
     password = fmc_password
     dynamic_object_name = fmc_dyn_object_name
 
-    # Print values to confirm
-    print(f"Server: {server}")
-    print(f"User: {user}")
-    print(f"Password: {password}")
-    print(f"Dynamic Object Name: {dynamic_object_name}")
+    # Print values to confirm or troubleshooting
+#    print(f"Server: {server}")
+#    print(f"User: {user}")
+#    print(f"Password: {password}")
+#    print(f"Dynamic Object Name: {dynamic_object_name}")
 
     config = root.find("./config")
 
@@ -327,9 +327,9 @@ if __name__ == "__main__":
         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         update_instance_config(instance_conf_file, auth_token, domain_uuid, timestamp)
 
-    # Proceed with other actions using auth_token and domain_uuid
-    print(f"Token: {auth_token}")
-    print(f"Domain UUID: {domain_uuid}")
+    # Proceed with other actions using auth_token and domain_uuid - for troubleshooting purposes
+#    print(f"Token: {auth_token}")
+#    print(f"Domain UUID: {domain_uuid}")
 
     # Fetch dynamic object ID
     dynamic_object_id = get_dynamic_object_id(auth_token, domain_uuid)

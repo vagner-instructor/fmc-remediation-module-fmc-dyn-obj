@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<module name="TriggerFMCDynBlock">
+<module name="TriggerFMCDynamicObject">
     <global_config>
         <display_name>Remediation Action Using FMC Dynamic Object</display_name>
         <description>This remediation module will send source IP address to FMC Dynamic Object for N Seconds</description>
-        <binary>fmc_block_src_ip.py</binary>
+        <binary>fmc_quarantine_ip.py</binary>
         <version>1.0</version>
     </global_config>
 
