@@ -338,7 +338,7 @@ if __name__ == "__main__":
     update_dynamic_object(auth_token, dynamic_object_id, domain_uuid)
 
     # Wait for the specified quarantine time
-    wait_for_seconds(quarantine_time)
+    wait_for_seconds(int(quarantine_time))
 
     # Remove the IP address from the dynamic object
     remove_ip_from_dynamic_object(auth_token, dynamic_object_id, domain_uuid)
